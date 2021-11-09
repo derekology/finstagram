@@ -1,0 +1,43 @@
+header {
+    background-color: #244751;
+    color: #E8FDFF;
+    /* margin-bottom: 20px; */
+    /* position: fixed; */
+    /* width: 100%; */
+}
+
+/* header h1 {    
+    margin: 0.67em auto;
+} */
+
+body {
+    background-color: whitesmoke;
+    font-family: 'Open Sans', sans-serif;
+}
+
+main {
+    background-color: white;
+    padding: 16px;
+    /* padding: 115px 20px 20px 20px; */
+}
+
+.finstagram-post {
+    margin-bottom: 48px;
+}
+
+.finstagram-post .user-info img {
+    border-radius: 50%;
+}
+
+a.photo:hover {
+    padding: 10px;
+}
+
+a.photo {
+    transition: padding 0.5s;
+}
+
+/* .user-info {
+    display: flex;
+    align-items: center;
+} */
