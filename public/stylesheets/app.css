@@ -1,14 +1,14 @@
 header {
     background-color: #244751;
     color: #E8FDFF;
-    /* margin-bottom: 20px; */
-    /* position: fixed; */
-    /* width: 100%; */
+    margin-bottom: 20px;
+    position: fixed;
+    width: 100%;
 }
 
-/* header h1 {    
+h1.logo {    
     margin: 0.67em auto;
-} */
+}
 
 body {
     background-color: whitesmoke;
@@ -18,7 +18,7 @@ body {
 main {
     background-color: white;
     padding: 16px;
-    /* padding: 115px 20px 20px 20px; */
+    padding: 115px 20px 20px 20px;
 }
 
 .finstagram-post {
@@ -37,7 +37,7 @@ a.photo {
     transition: padding 0.5s;
 }
 
-/* .user-info {
+.user-info {
     display: flex;
     align-items: center;
-} */
+}
