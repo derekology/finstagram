@@ -1,0 +1,33 @@
+<main role="main">
+
+    <form method="POST" action="/signup">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="<%= @user.email %>">
+        </div>
+        <div class="form-group">
+            <label for="avatar_url">Avatar URL</label>
+            <input type="text" id="avatar_url" name="avatar_url" value="<%= @user.avatar_url %>">
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" value="<%= @user.username %>">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div class="form-group">
+            <button class="button" type="submit">Sign Up</button>
+        </div>
+    </form>
+
+    <% if @user.errors.full_messages.length() > 0 %>
+    <span style="color: #f00;"><p>Signup error:</p>
+    <ul class="errors">
+        <% @user.errors.full_messages.each do |m| %>
+            <li><%= m %></li>
+        <% end %>
+    </ul></span>
+    <% end %>
+</main>
