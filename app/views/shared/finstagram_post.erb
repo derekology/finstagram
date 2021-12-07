@@ -1,0 +1,35 @@
+<article class="finstagram-post">
+    <div class="user-info">
+        <img src="<%= finstagram_post.user.avatar_url %>" alt="<% finstagram_post.user.username %>">
+        <h2><%= finstagram_post.user.username %></h2>
+        <h3><%= finstagram_post.humanized_time_ago %></h3>
+    </div>
+    <a class="photo" href="/finstagram_posts/<%= finstagram_post.id %>">
+        <img src="<%= finstagram_post.photo_url %>" alt="post from <%= finstagram_post.user.username %>">
+    </a>
+    <div class="actions">
+        <%= erb(:"shared/likes", { locals: { finstagram_post: finstagram_post }}) %>
+        <span class="comment-count"><%= finstagram_post.comments_count %> comments</span>
+    </div>
+    <ul class="comments">
+        <% finstagram_post.comments.each do |comment| %>
+            <li>
+                <p>
+                    <strong><%= comment.user.username %>:</strong> <%= comment.text %>
+                    <% if current_user %>
+                        <% if comment = current_user.comments.find_by({finstagram_post_id: finstagram_post.id }) %>
+                            <a href="javascript: void(0)" class="delete-comment" onclick="document.getElementById('delete-comment').submit();"> Delete </a>
+                            <form action="/comments/<%= comment.id %>" method="POST" id="delete-comment" class="hidden">
+                                <input name="_method" type="hidden" value="delete">        
+                                <input name="submit-form" type="submit" id="submit-form">                
+                            </form> 
+                        <% end %>
+                    <% end %>
+                </p>
+            </li>
+        <% end %>
+    </ul>
+    <% if current_user && show_comment_form %>
+    <%= erb(:"shared/new_comment", {locals: { finstagram_post: finstagram_post}}) %>
+    <% end %>
+</article>
