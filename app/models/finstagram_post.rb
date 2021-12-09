@@ -29,8 +29,11 @@ class FinstagramPost < ActiveRecord::Base
         elsif time_ago_in_hours >= 1
             "About an hour ago" 
 
-        elsif time_ago_in_minutes >= 1
+        elsif time_ago_in_minutes >= 2
             "#{time_ago_in_minutes} minutes ago"
+
+        elsif time_ago_in_minutes >= 1
+            "About a minute ago"
 
         elsif time_ago_in_seconds >= 5
             "#{time_ago_in_seconds} seconds ago"
