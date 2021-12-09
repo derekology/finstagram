@@ -1,9 +1,36 @@
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            
+            $("#photo_url").blur(function() {
+                var photoUrl = $("#photo_url").val(); 
+                
+                if ( photoUrl ) {
+                    $("#post-preview-img").attr("src", photoUrl);
+                    $("#post-preview").show();
+                }
+                else {
+                    $("#post-preview").hide();
+                }
+            });          
+        });
+    </script>
+
+</head>
+
 <main role=main>
     <h2>New Post</h2>
     <form method="POST" action="/finstagram_posts/new">
         <div class="form-group">
             <label for="photo_url">Photo URL:</label>
             <input type="text" id="photo_url" name="photo_url" />
+        </div>
+        <div id="post-preview" style="display:none;">
+            <h3>Preview:</h3>
+            <img id="post-preview-img" src="" alt="Preview image" />
+            <br><br>
         </div>
         <div class="form-group">
             <button class="button" type="submit">Post</button>
@@ -18,4 +45,5 @@
     </ul>
     </span>
     <% end %>
+
 </main>
